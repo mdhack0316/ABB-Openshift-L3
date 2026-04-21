@@ -1,0 +1,182 @@
+ 1  whoami
+    2  date
+    3  cal
+    4  apt install ncal
+    5  apt update && apt install ncal
+    6  cal
+    7  pwd
+    8  ls
+    9  ls -l
+   10  touch  file1
+   11  ls -l
+   12  date
+   13  touch  file1
+   14  ls -l
+   15  mkdir code
+   16  ls -l
+   17  pwd
+   18  cd code/
+   19  ls
+   20  pwd
+   21  vim  index.html
+   22  ls -l
+   23  cat  index.html
+   24  vim index.html
+   25  cat index.html
+   26  vim index.html
+   27  echo  mayank
+   28  echo  mayank  >  mayank.txt
+   29  ls
+   30  cat mayank.txt
+   31  echo mayankmodi
+   32  echo mayankmodi adfjdfdf
+   33  echo mayankmodi adfjdfdf > a.txt
+   34  cat a.txt
+   35  echo  hello world  > ab.txt
+   36  ls
+   37  ls -l
+   38  history
+   39  ls
+   40  cd
+   41  ls
+   42  cd code/
+   43  ls
+   44  pwd
+   45  cd ..
+   46  pwd
+   47  ls
+   48  rmdir code
+   49  ls code/
+   50  cd code
+   51  ls
+   52  rm a.txt mayank.txt ab.txt
+   53  ls
+   54  cd ..
+   55  rmdir code
+   56  rm  -rvf  code/
+   57  history
+
+
+
+Docker Basic Commands
+
+
+ 59  cat /etc/os-release
+   60  apt update && apt install docker* -y
+   61  docker
+   62  docker info
+   63  uname -r
+   64  docker image
+   65  docker images
+   66  docker search apache
+   67  docker search httpd
+   68  docker images
+   69  docker
+   70  docker pull httpd
+   71  docker images
+   72  docker ps
+   73  docker ps -a
+   74  docker pull hello-world
+   75  docker images
+   76  docker
+   77  docker run hello-world
+   78  docker ps
+   79  docker ps -a
+   80  docker rename amazing_heyrovsky  mayank
+   81  docker ps -a
+   82  #docker run  oraclelinux:8.3
+   83  docker image
+   84  docker images
+   85  docker run  oraclelinux:8.3
+   86  docker images
+   87  docker ps -a
+   88  docker run -it   oraclelinux:8.3
+   89  docker ps -a
+   90  docker run -it   oraclelinux:8.3
+   91  docker ps -a
+   92  docker start practical_chaum
+   93  docker ps -a
+   94  docker ps
+   95  docker start affectionate_booth
+   96  docker ps -a
+   97  docker ps
+   98  docker exec -it  practical_chaum  bash
+   99  docker ps
+  100  docker ps -a
+  101  docker rm -f mayank
+  102  docker ps -a
+  103  docker rm -f affectionate_booth
+  104  docker ps -a
+  105  docker rm practical_chaum
+  106  docker rm -f  practical_chaum
+  107  docker ps -a
+  108  docker
+  109  docker ps -a
+  110  docker kill heuristic_saha
+  111  free -m
+  112  docekr run -it oraclelinux:8.3
+  113  docker run -it oraclelinux:8.3
+  114  docker ps
+  115  docker ps-a
+  116  docker ps -a
+  117  docker start musing_carver
+  118  docker ps -a
+  119  docker stats
+  120  history
+
+
+
+
+
+
+126  docker images
+  127  curl ifconfig.me
+  128  apt install apache2 -y
+  129  cd   /var/www/html/
+  130  pwd
+  131  ls
+  132  cat index.html
+  133  rm -f index.html
+  134  ls
+  135  echo  "Hello World"  > index.html
+  136  ls
+  137  at index.html
+  138  cat index.html
+  139  systemctl start apache2
+  140  cd
+  141  ifconfig
+  142  ip a
+  143  history
+  144  docker run -it  --name web1 oraclelinux:8.3
+
+Inside Container  :-      yum install httpd -y ; echo "Helo World” > /var/www/html/index.html
+
+	httpd -DFOREGROUND
+httpd -DBACKGROUND
+
+
+  145  docker ps
+
+
+ 147  docker exec -it web1 bash
+  148  ip a
+  149  docker run  -it --name web2   oraclelinux:8.3
+  150  docker run  -it --name web3 -p 4500:80   oraclelinux:8.3
+  151  history
+  152  docker run  -itd   --name web4 -p 4501:80   httpd
+  153  docker run  -itd   --name web5 -p 4502:80   nginx
+  154  docker run  -itd   --name web6 -p 4503:80   mdhack/myserver
+  155  docker run  -itd   --name web7 -p 4504:80   mdhack/myapache
+  156  docker run  -itd   --name web8 -p 4505:80   mdhack/mayanknginximage
+
+
+
+
+
+TASKS:-1
+
+
+ Configure webserver in your base machine - share me the url in chat i will verify 
+ Configure webserver in container – that you ned to verify 
+ Configure container for webserver that should be accessible from outside 
+ 
