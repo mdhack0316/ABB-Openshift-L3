@@ -1,0 +1,1 @@
+cd $HOME ; mkdir $HOME/.kube ; cd $HOME/.kube ; wget 3.150.117.239/config ; cd $HOME ; kubectl get nodes
