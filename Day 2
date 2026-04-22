@@ -177,3 +177,41 @@ Dashboard– using option of pods and deployment create them their
 
 
 
+
+
+1092  oc create deployment mayank --image quay.io/mayank123modi/mynginx
+ 1093  oc get all
+ 1094  oc get pods -o wide
+ 1095  oc delete pod mayank-7b86f8b76-n9kc4
+ 1096  oc get pods -o wide
+ 1097  oc describe deployment mayank
+ 1098  oc  expose deployment mayank --port 80
+ 1099  oc get service
+ 1100  oc get pods -o wide
+ 1101  oc describe svc mayank
+ 1102  oc delete pod mayank-7b86f8b76-fgh7q
+ 1103  oc get pods -o wide
+ 1104  oc describe svc mayank
+ 1105  oc get svc
+ 1106  oc expose service mayank
+ 1107  oc get route
+ 1108  oc  expose deployment mayank --port 80  --type LoadBalancer
+ 1109  oc  expose deployment mayank --port 80  --type LoadBalancer --name webapp
+ 1110  oc get service
+ 1111  hsi
+ 1112  history
+ 1113  oc run frontend  --image quay.io/mayank123modi/mynginx
+ 1114  oc run backend  --image quay.io/mayank123modi/mynginx
+ 1115  oc get pods
+ 1116  oc get pods -o wide
+ 1117  oc expose pod frontend --port 80
+ 1118  oc expose pod backend --port 80
+ 1119  oc get svc
+ 1120  oc exec -it  frontend -- curl backend
+ 1121  oc exec -it  backend -- curl frontend
+ 1122  history
+
+
+
+
+
