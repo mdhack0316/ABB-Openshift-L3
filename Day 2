@@ -1,1 +1,64 @@
 cd $HOME ; mkdir $HOME/.kube ; cd $HOME/.kube ; wget 3.150.117.239/config ; cd $HOME ; kubectl get nodes
+
+
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+chmod +x kubectl
+
+sudo mv kubectl /usr/local/bin/
+
+
+
+
+Namespace 
+
+
+ 38  kubectl get  pods
+   39  kubectl get  pods -n kube-system
+   40  kubectl create namespace mayank
+   41  kubectl get ns
+   42  kubectl  get pods
+   43  kubectl  get pods -n mayank
+   44  kubectl config get-contexts
+   45  kubectl  config set-context  kubernetes-admin@kubernetes   --namespace mayank
+   46  kubectl config get-contexts
+   47  kubectl  get pods
+
+
+
+   49  kubectl  run   mypod1   --image nginx
+   50  kubectl get pods
+   51  kubectl get pods  -o wide
+   52  curl 192.168.182.1
+   53  kubectl describe pod mypod1
+   54  kubectl get pods
+   55  kubectl delete pod mypod1
+   56  kubectl get pods
+   57  kubectl create deployment webapp  --image httpd
+   58  kubectl get deployment
+   59  kubectl get deployment -o wide
+   60  kubectl describe deployment webapp
+   61  kubectl get replicasets
+   62  kubectl get pods
+   63  kubectl get pods -o wide
+   64  curl 192.168.189.65
+   65  kubectl describe deployment webapp
+   66  kubectl describe rs webapp-85759bff99
+   67  kuebctl describe pod  webapp-85759bff99-g78qp
+   68  kubectl describe pod  webapp-85759bff99-g78qp
+   69  kubectl get all
+   70  kubectl delete pod webapp-85759bff99-g78qp
+   71  kubectl get all
+   72  kubectl get all -o wide
+   73  kubectl delete pod webapp-85759bff99-pd6lt
+   74  kubectl get all -o wide
+   75  kubectl delete rs webapp-85759bff99
+   76  kubectl get all
+   77  kubectl get all  -o wide
+   78  kubectl delete deployment webapp
+   79  kubectl get all
+   80  history
+
+
+
