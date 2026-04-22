@@ -95,3 +95,69 @@ Namespace
 
 
 
+
+1042  oc get all
+ 1043  history
+ 1044  mkdir abb
+ 1045  cd abb
+ 1046  ls
+ 1047  vim 1-pod.yaml
+ 1048  oc api-resources
+ 1049  oc api-resources | grep -i pod
+ 1050  oc api-versions
+ 1051  oc api-resources | wc -l
+ 1052  vi 1-pod.yaml
+ 1053  cat 1-pod.yaml
+ 1054  oc create -f 1-pod.yaml
+ 1055  oc get pods
+ 1056  oc get pods -o wide
+ 1057  oc delete  -f 1-pod.yaml
+ 1058  oc get pods
+ 1059  cat 1-pod.yaml
+ 1060  oc create deployment mayank --image quay.io/mayank123modi/mynginx   --dry-run
+ 1061  oc get pods
+ 1062  oc create deployment mayank --image quay.io/mayank123modi/mynginx   --dry-run  -o yaml
+ 1063  oc create deployment mayank --image quay.io/mayank123modi/mynginx   --dry-run  -o yaml   > 2-dep.yaml
+ 1064  vim 2-dep.yaml
+ 1065  oc create -f 2-dep.yaml
+ 1066  oc get all
+ 1067  oc delete -f 2-dep.yaml
+ 1068  history
+
+
+
+[root@openshift abb]# cat 1-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: mayank
+    image: quay.io/mayank123modi/mynginx
+[root@openshift abb]# cat 2-dep.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mayank
+  name: mayank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mayank
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mayank
+    spec:
+      containers:
+      - image: quay.io/mayank123modi/mynginx
+        name: mynginx
+        resources: {}
+status: {}
+
