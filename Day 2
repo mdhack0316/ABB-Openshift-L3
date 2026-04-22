@@ -62,3 +62,36 @@ Namespace
 
 
 
+
+ 1014  oc  login -u admin -p redhat@123 https://api.mayank.openshiftlab.xyz:6443
+ 1015  oc project
+ 1016  oc get project
+ 1017  oc get pods
+ 1018  oc get deployments
+ 1019  oc  new-project mayank
+ 1020  oc project
+ 1021  oc get all
+ 1022  oc run mayankpod   --image quay.io/mayank123modi/mynginx
+ 1023  oc get pods
+ 1024  oc get pods -o wide
+ 1025  oc get nodes
+ 1026  oc describe pod mayankpod
+ 1027  oc delete pod mayankpod
+ 1028  oc get pods
+ 1029  oc create deployment mayank --image quay.io/mayank123modi/mynginx
+ 1030  oc get all
+ 1031  oc logs mayank-7b86f8b76-5ghj4
+ 1032  oc adm policy add-scc-to-user anyuid -z default
+ 1033  oc delete pod mayank-7b86f8b76-5ghj4
+ 1034  oc get all
+ 1035  oc logs  mayank-7b86f8b76-nmtts
+ 1036  oc get pods
+ 1037  oc get pods -o wide
+ 1038  oc get nodes
+ 1039  oc delete pod mayank-7b86f8b76-nmtts
+ 1040  oc get all
+ 1041  oc delete deployment mayank
+ 1042  oc get all
+
+
+
