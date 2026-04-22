@@ -161,3 +161,19 @@ spec:
         resources: {}
 status: {}
 
+
+
+Tasks: 
+
+Login through dashboard 
+Get an overview of openshift dashboard 
+Login through cli 
+Create project with same as your username
+ Let me know – i can give you permission 
+ Create pods and deploymetns with ClI 
+G to dashboard and create project 
+cl i - –  create pods and  deployment using yaml 
+Dashboard– using option of pods and deployment create them their 
+
+
+
