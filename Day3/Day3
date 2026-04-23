@@ -49,3 +49,103 @@ spec:
       min:
         cpu: "10m"
         memory: "100Mi"
+
+
+
+
+Scaling 
+
+
+ 1094  oc get hpa
+ 1095  oc get vpa
+ 1096  oc get all
+ 1097  oc create deployment mayank --image quay.io/mayank123modi/mynginx
+ 1098  oc get all
+ 1099  oc scale deployment mayank --replcias 10
+ 1100  oc scale deployment mayank --replicas 10
+ 1101  oc get pods
+ 1102  oc get pods -o wide
+ 1103  oc get pods
+ 1104  oc scale deployment mayank --replicas 1
+ 1105  oc get pods
+ 1106  ls
+ 1107  vim hpa-dep-svc.yml
+ 1108  oc create -f hpa-dep-svc.yml
+ 1109  oc get all
+ 1110  oc delete deployment mayank
+ 1111  oc get all
+ 1112  oc autoscale deployment php-apache  --cpu-percent=50  --max=10 --min=1
+ 1113  oc get hpa
+ 1114  oc adm top pod
+ 1115  oc get hpa
+ 1116  oc get pods
+ 1117  watch  oc get pods
+ 1118  free -m
+ 1119  echo 1 >/proc/sys/vm/drop_caches
+ 1120  watch  oc get pods
+ 1121  oc get nodes
+ 1122  oc adm top node
+ 1123  oc get pods
+ 1124  oc whoami
+ 1125  oc get pods
+ 1126  oc delete pod load-generator
+ 1127  watch  oc get pods
+ 1128  oc get pods
+ 1129  oc describe pod load-generator
+ 1130  podman
+ 1131  podman pull busybox:1.28
+ 1132  podman images
+ 1133  podman tag docker.io/library/busybox:1.28  quay.io/mayank123modi/busybox:1.28
+ 1134  podman login quay.io
+ 1135  watch oc get podsl
+ 1136  watch oc get pods
+ 1137  oc get hpa
+ 1138  oc get pods
+ 1139  history
+
+[root@openshift abb]# cat hpa-dep-svc.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache
+spec:
+  selector:
+    matchLabels:
+      run: php-apache
+  template:
+    metadata:
+      labels:
+        run: php-apache
+    spec:
+      containers:
+      - name: php-apache
+        image: registry.k8s.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-apache
+  labels:
+    run: php-apache
+spec:
+  ports:
+  - port: 80
+  selector:
+    run: php-apache
+
+
+
+
+oc run -i --tty load-generator --rm --image=quay.io/mayank123modi/busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+
+
+
+
+
