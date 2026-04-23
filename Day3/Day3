@@ -1,0 +1,51 @@
+[root@openshift abb]# cat 2-dep.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mayank
+  name: mayank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mayank
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mayank
+    spec:
+      containers:
+      - image: quay.io/mayank123modi/mynginx
+        name: mynginx
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 10m
+          limits:
+            memory: 1000Mi
+            cpu: 100m
+[root@openshift abb]# cat limitrange.yaml
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: resource-limits
+spec:
+  limits:
+    - type: Container
+      max:
+        cpu: "500m"
+        memory: "500Mi"
+      min:
+        cpu: "10m"
+        memory: "100Mi"
+    - type: Pod
+      max:
+        cpu: "1000m"
+        memory: "2Gi"
+      min:
+        cpu: "10m"
+        memory: "100Mi"
