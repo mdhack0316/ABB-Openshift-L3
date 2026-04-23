@@ -147,5 +147,73 @@ oc run -i --tty load-generator --rm --image=quay.io/mayank123modi/busybox:1.28 -
 
 
 
+Deployment strategy 
+
+
+1145  oc create deployment webapp --image quay.io/mayank123modi/strategy:v1
+ 1146  oc get all
+ 1147  oc describe deployment webapp
+ 1148  oc edit deployment webapp
+ 1149  oc scale deployment webapp --replicas 30
+ 1150  oc get pods
+ 1151  oc get all
+ 1152  oc expose deployment webapp --port 80
+ 1153  oc expose svc webapp
+ 1154  oc get route
+ 1155  oc get deployment -o wide
+ 1156  oc set image deployment webapp strategy=quay.io/mayank123modi/strategy:v2 ; watch oc get pods
+ 1157  oc get pods
+ 1158  oc get deployment -o wide
+ 1159  oc rollout history deployment webapp
+ 1160  oc rollout undo  deployment webapp ; watch oc get pods
+ 1161  oc rollout history deployment webapp
+ 1162  oc delete all --all --force
+ 1163  ls
+ 1164  vim 2-dep.yaml
+ 1165  oc create -f 2-dep.yaml
+ 1166  vim 2-dep.yaml
+ 1167  oc create -f 2-dep.yaml
+ 1168  oc describe deployment mayank
+ 1169  oc scale deployment mayank --replicas 30
+ 1170  oc expose deployment mayank --port 80
+ 1171  oc expose svc mayank
+ 1172  oc get route
+ 1173  oc get all
+ 1174  oc get deployment -o wide
+ 1175  oc set image deployment mayank   mynginx=quay.io/mayank123modi/strategy:v2 ; watch oc get pods
+ 1176  oc rollout history deployment mayank
+ 1177  oc rollout undo  deployment mayank  ; watch oc get pods
+ 1178  history
+
+[root@openshift abb]# cat 2-dep.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mayank
+  name: mayank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mayank
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mayank
+    spec:
+      containers:
+      - image: quay.io/mayank123modi/strategy:v1
+        name: mynginx
+
+
+
+
+
+
 
 
